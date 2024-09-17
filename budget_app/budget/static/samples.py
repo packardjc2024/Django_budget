@@ -25,7 +25,7 @@ class Samples:
                     'id': self.expense_id,
                     'description': f'expense sample {i}',
                     'amount': round(random.uniform(10, 30), 2),
-                    'date': f'2024-{str(budget['id'])}-{str(random.randint(1, 28))}',
+                    'date': f'2024-{str(budget["id"])}-{str(random.randint(1, 28))}',
                     'merchant': f"merchant sample {1}",
                     'line_item': random.choice(list(self.line_items.keys())),
                     'payment_method': random.choice(['Credit Card', 'Debit Card', 'Cash', 'Check']),
