@@ -42,10 +42,10 @@ class Budget(models.Model):
 
 class Expense(models.Model):
     current_month = datetime.now().strftime("%-m-%Y")
-    current_budget = Budget.objects.filter(budget_month=current_month).values('id')[0]['id']
-    if current_month:
+    try:
+        current_budget = Budget.objects.filter(budget_month=current_month).values('id')[0]['id']
         default_budget = current_budget
-    else:
+    except IndexError:
         default_budget = None
 
     class PaymentMethod(models.TextChoices):
