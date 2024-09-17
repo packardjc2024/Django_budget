@@ -79,7 +79,7 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('password'),
+        'NAME': os.getenv('database'),
         'USER': os.getenv('user'),
         'PASSWORD': os.getenv('password'),
         'HOST': 'packardjc.mysql.pythonanywhere-services.com',
