@@ -83,7 +83,6 @@ DATABASES = {
         'USER': os.getenv('user'),
         'PASSWORD': os.getenv('password'),
         'HOST': 'packardjc.mysql.pythonanywhere-services.com',
-        'PORT': 3306,
     }
 }
 
