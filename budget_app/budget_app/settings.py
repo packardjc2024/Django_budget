@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'packardjc$default',
         'USER': os.getenv('user'),
-        'PASSWORD': os.getenv('password'),
+        'password': os.getenv('password'),
         'HOST': 'packardjc.mysql.pythonanywhere-services.com',
     }
 }
