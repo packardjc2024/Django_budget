@@ -70,7 +70,7 @@ class Expense(models.Model):
     payment_method = models.CharField(max_length=11, blank=False, default=PaymentMethod.credit,
                                       choices=PaymentMethod.choices, null=False)
     budget_id = models.IntegerField(blank=False, null=False, default=default_budget,
-                                    choices=tuple([(budget['id'], budget['budget_month']) for budget in Budget.objects.values('id', 'budget_month')])
+                                    
                                     )
 
     def table_columns(self):
