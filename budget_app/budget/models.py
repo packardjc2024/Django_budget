@@ -42,7 +42,11 @@ class Budget(models.Model):
 
 class Expense(models.Model):
     current_month = datetime.now().strftime("%-m-%Y")
-    default_budget = None
+    try:
+        current_budget = Budget.objects.filter(budget_month=current_month).values('id')[0]['id']
+        default_budget = current_budget
+    except IndexError:
+        default_budget = None
 
     class PaymentMethod(models.TextChoices):
         credit = 'credit_card', 'Credit Card'
@@ -70,6 +74,7 @@ class Expense(models.Model):
     payment_method = models.CharField(max_length=11, blank=False, default=PaymentMethod.credit,
                                       choices=PaymentMethod.choices, null=False)
     budget_id = models.IntegerField(blank=False, null=False, default=default_budget,
+                                    choices=tuple([(budget['id'], budget['budget_month']) for budget in Budget.objects.values('id', 'budget_month')])
                                     )
 
     def table_columns(self):
